@@ -10,7 +10,10 @@
     <context:property-placeholder location="classpath:property.properties"/>
 
     <bean id="musicBean"
-          class="com.max.spring.inversion_of_control.ClassicalMusic">
+          class="com.max.spring.inversion_of_control.ClassicalMusic"
+          init-method="doMyInit"
+          destroy-method="doMyDestroy"
+          factory-method="getClassicalMusic">
     </bean>
 
     <bean id="musicPlayer"
