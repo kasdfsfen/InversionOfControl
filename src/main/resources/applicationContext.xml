@@ -14,7 +14,8 @@
     </bean>
 
     <bean id="musicPlayer"
-        class="com.max.spring.inversion_of_control.MusicPlayer">
+        class="com.max.spring.inversion_of_control.MusicPlayer"
+        scope="prototype">
         <property name="music" ref="musicBean"/>
         <property name="name" value="${property.name}"/>
         <property name="volume" value="${property.volume}"/>
