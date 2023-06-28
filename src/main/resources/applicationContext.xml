@@ -7,9 +7,8 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <bean id="testBean"
-          class="com.max.spring.inversion_of_control.TestBean">
-        <constructor-arg value="Maxim"/>
+    <bean id="musicBean"
+          class="com.max.spring.inversion_of_control.RockMusic">
     </bean>
 
 </beans>
