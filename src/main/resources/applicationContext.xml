@@ -7,13 +7,17 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
 
+    <context:property-placeholder location="classpath:property.properties"/>
+
     <bean id="musicBean"
           class="com.max.spring.inversion_of_control.ClassicalMusic">
     </bean>
 
     <bean id="musicPlayer"
         class="com.max.spring.inversion_of_control.MusicPlayer">
-        <constructor-arg ref="musicBean"/>
+        <property name="music" ref="musicBean"/>
+        <property name="name" value="${property.name}"/>
+        <property name="volume" value="${property.volume}"/>
     </bean>
 
 </beans>
