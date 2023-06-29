@@ -1,21 +1,22 @@
 package com.max.spring.inversion_of_control;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
 public class MusicPlayer {
 
-    private ClassicalMusic classicalMusic;
-    private RockMusic rockMusic;
+    private Music music;
+    private Music music1;
 
     @Autowired
-    public MusicPlayer(ClassicalMusic classicalMusic, RockMusic rockMusic) {
-        this.classicalMusic = classicalMusic;
-        this.rockMusic = rockMusic;
+    public MusicPlayer(@Qualifier("classicalMusic") Music music, @Qualifier("rockMusic") Music music1) {
+        this.music = music;
+        this.music1 = music1;
     }
 
     public String playMusic() {
-        return "Playing: " + classicalMusic.getSong();
+        return "Playing: " + music.getSong() + ", " + music1.getSong();
     }
 }
